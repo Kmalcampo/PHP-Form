@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email    = trim($_POST['email']);
     $password = $_POST['password'];
 
-    // Validation
     if (empty($email) || empty($password)) {
         $error = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -63,4 +62,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <p>No account? <a href="signup.php">Sign Up</a></p>
 </div>
 </body>
+
 </html>
