@@ -5,8 +5,8 @@ if (isset($_SESSION['user'])) { header("Location: dashboard.php"); exit(); }
 $errors = []; $success = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name     = trim($_POST['name']);
-    $email    = trim($_POST['email']);
+    $name     = ($_POST['name']);
+    $email    = ($_POST['email']);
     $password = $_POST['password'];
     $confirm  = $_POST['confirm'];
 
@@ -60,3 +60,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+
