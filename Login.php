@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email    = trim($_POST['email']);
     $password = $_POST['password'];
 
+
     if (empty($email) || empty($password)) {
         $error = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -24,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['email'] = $found['email'];
             $_SESSION['login_time'] = date('Y-m-d H:i:s');
 
-            // Cookie: remember email for 30 days
-            if (isset($_POST['remember'])) {
-                setcookie('remember_email', $email, time() + (30 * 24 * 3600), '/');
+          if (isset($_POST['remember'])) {
+                setcookie('remember_email', $email, time() + 3600, '/'); 
             } else {
                 setcookie('remember_email', '', time() - 3600, '/');
-            }
+        }
 
-            header("Location: dashboard.php");
+        header("Location: dashboard.php");
+            exit;
             exit();
         } else {
             $error = "Invalid email or password.";
@@ -62,5 +63,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <p>No account? <a href="signup.php">Sign Up</a></p>
 </div>
 </body>
-
 </html>
