@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($email))                                  $errors[] = "Email is required.";
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
     if (empty($password))                               $errors[] = "Password is required.";
-    elseif (strlen($password) < 5)                      $errors[] = "Password must be at least 8 characters.";
+    elseif (strlen($password) < 5)                      $errors[] = "Password must be at least 5 characters.";
     if ($password !== $confirm)                         $errors[] = "Passwords do not match.";
 
     if (empty($errors)) {
@@ -58,4 +58,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <p>Already have an account? <a href="login.php">Login</a></p>
 </div>
 </body>
+
 </html>
